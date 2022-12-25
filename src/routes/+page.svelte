@@ -1,59 +1,40 @@
 <script>
-	import Counter from './Counter.svelte';
-	import welcome from '$lib/images/svelte-welcome.webp';
-	import welcome_fallback from '$lib/images/svelte-welcome.png';
+    import Panel from './Panel.svelte'
+    import Filter from "./Filter.svelte";
+    import {mode, data} from './data.js'
+    import {Stretch} from 'svelte-loading-spinners';
 </script>
 
 <svelte:head>
-	<title>Home</title>
-	<meta name="description" content="Svelte demo app" />
+    <title>旅游比价系统</title>
+    <meta name="description" content="travel-frontend"/>
 </svelte:head>
 
 <section>
-	<h1>
-		<span class="welcome">
-			<picture>
-				<source srcset={welcome} type="image/webp" />
-				<img src={welcome_fallback} alt="Welcome" />
-			</picture>
-		</span>
-
-		to your new<br />SvelteKit app
-	</h1>
-
-	<h2>
-		try editing <strong>src/routes/+page.svelte</strong>
-	</h2>
-
-	<Counter />
+    <Panel/>
+    {#if $mode !== 1}
+        <!--<Filter/>-->
+    {/if}
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-auto">
+                {#if $mode === 1}
+                    <div class="wait fs-5">
+                        <Stretch/>
+                        &nbsp;&nbsp;正在查询，请稍候...
+                    </div>
+                {:else if $mode !== 0}
+                    {$data.plans}
+                {/if}
+            </div>
+        </div>
+    </div>
 </section>
 
 <style>
-	section {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		flex: 0.6;
-	}
-
-	h1 {
-		width: 100%;
-	}
-
-	.welcome {
-		display: block;
-		position: relative;
-		width: 100%;
-		height: 0;
-		padding: 0 0 calc(100% * 495 / 2048) 0;
-	}
-
-	.welcome img {
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0;
-		display: block;
-	}
+    .wait {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 </style>

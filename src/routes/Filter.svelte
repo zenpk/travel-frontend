@@ -14,21 +14,21 @@
             </div>
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
                 <li class="nav-item me-2">
-                    <a class="nav-link active middle" href="/">
+                    <a class="nav-link active" href="/">
                         <HomeIcon/>
-                        &nbsp;主页
+                        主页
                     </a>
                 </li>
                 <li class="nav-item me-2">
-                    <a class="nav-link active middle" href="/">
+                    <a class="nav-link active" href="/">
                         <SearchIcon/>
-                        &nbsp;路线查询
+                        路线查询
                     </a>
                 </li>
                 <li class="nav-item me-2">
-                    <a class="nav-link active middle" href="/">
+                    <a class="nav-link active" href="/">
                         <DatabaseIcon/>
-                        &nbsp;数据日志
+                        数据日志
                     </a>
                 </li>
             </ul>
@@ -50,11 +50,5 @@
     .navbar-my {
         background-color: #f5f5f5;
         box-shadow: 0 2px 5px 0 #aaaaaa;
-    }
-
-    .middle {
-        display: flex;
-        align-items: center;
-        justify-content: center;
     }
 </style>
