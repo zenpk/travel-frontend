@@ -26,7 +26,7 @@
                 {:else if $mode !== 0}
                     <div class="row g-0">
                         <div class="col">
-                            <div class="card table-responsive">
+                            <div class="my-card table-responsive">
                                 <table class="table table-borderless m-0">
                                     <thead class="blue">
                                     <tr>
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                 {:else}
-                    <img src="/map.png" alt="map" class="mt-5">
+                    <img src="/map.png" alt="map" class="mt-5" draggable="false">
                 {/if}
             </div>
         </div>
@@ -93,7 +93,7 @@
         justify-content: center;
     }
 
-    .card {
+    .my-card {
         border-radius: 0;
         border: 0;
         box-shadow: -2px 2px 5px #dddddd;
