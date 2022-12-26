@@ -24,37 +24,14 @@
                         &nbsp;&nbsp;正在查询，请稍候...
                     </div>
                 {:else if $mode !== 0}
-                    <div class="row g-0">
-                        <div class="col">
-                            <div class="card table-responsive">
-                                <table class="table table-borderless m-0">
-                                    <thead class="blue">
-                                    <tr>
-                                        <th>参考图片</th>
-                                        <th>名称</th>
-                                        <th>出行方式</th>
-                                        <th>酒店</th>
-                                        <th>出游天数</th>
-                                        <th>价格范围</th>
-                                        <th>评分</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    {#each $data.plans as plan}
-                                        <tr>
-                                            <td>
-                                                <img class="crop" src={plan[0]} alt="img"/>
-                                            </td>
-                                            <td class="fw-bold">{plan[1]}</td>
-                                            <td>{plan[2]}</td>
-                                            <td>{plan[3]}</td>
-                                        </tr>
-                                    {/each}
-                                    </tbody>
-                                </table>
+                    {#each $data.plans as plan}
+                        <div class="row mb-5 card g-0">
+                            <div class="col-2">
+                                <img class="crop" src={plan[0]} alt="img"/>
                             </div>
+                            <div class="col-10">{plan[1]}</div>
                         </div>
-                    </div>
+                    {/each}
                     <div class="row g-0 justify-content-center mt-2 mb-5">
                         <div class="col-auto">
                             1&nbsp;&nbsp;
@@ -96,8 +73,8 @@
     }
 
     .crop {
-        width: 200px;
-        height: 200px;
+        width: 240px;
+        height: 180px;
         object-fit: cover;
     }
 
