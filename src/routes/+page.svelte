@@ -35,19 +35,22 @@
                                         <th>出行方式</th>
                                         <th>酒店</th>
                                         <th>出游天数</th>
-                                        <th>价格范围</th>
+                                        <th>价格</th>
                                         <th>评分</th>
                                     </tr>
                                     </thead>
                                     <tbody>
                                     {#each $data.plans as plan}
-                                        <tr>
+                                        <tr class="border-bottom">
                                             <td>
                                                 <img class="crop" src={plan[0]} alt="img"/>
                                             </td>
                                             <td class="fw-bold">{plan[1]}</td>
                                             <td>{plan[2]}</td>
                                             <td>{plan[3]}</td>
+                                            <td>{plan[4]}</td>
+                                            <td>{plan[5]}</td>
+                                            <td>{plan[6]}</td>
                                         </tr>
                                     {/each}
                                     </tbody>
@@ -75,6 +78,8 @@
                             页
                         </div>
                     </div>
+                {:else}
+                    <img src="/map.png" alt="map" class="mt-5">
                 {/if}
             </div>
         </div>
@@ -96,9 +101,13 @@
     }
 
     .crop {
-        width: 200px;
-        height: 200px;
+        width: 240px;
+        height: 180px;
         object-fit: cover;
+    }
+
+    td {
+        vertical-align: text-top;
     }
 
     .page-width {
@@ -107,6 +116,6 @@
     }
 
     .blue {
-        background-image: linear-gradient(#d1e4ff, #bbcdff);
+        background-image: linear-gradient(#eef3ff, #dae6ff);
     }
 </style>

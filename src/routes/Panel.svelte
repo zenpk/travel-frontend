@@ -22,7 +22,7 @@
         mode.set(1); // loading
         await sleep(1000);
         const destination = document.getElementById("destination");
-        if (destination.value === "上海") {
+        if (destination.value === "重庆") {
             data.read1();
         } else {
             data.read2();
