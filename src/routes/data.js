@@ -31,7 +31,7 @@ const data1 = `
 
 const data2 = `
 {"plans":[
-    ["1","2","3"],
+    ["https://dimg04.c-ctrip.com/images/0301n120009v8bxl2D266_C_200_150.jpg","上海3日2晚自由行","2","3"],
     ["1","2","3"]
 ]}
 `

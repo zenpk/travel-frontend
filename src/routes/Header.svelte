@@ -49,7 +49,7 @@
 
     .navbar-my {
         background-color: #f5f5f5;
-        box-shadow: 0 2px 5px 0 #aaaaaa;
+        box-shadow: 0 2px 5px #aaaaaa;
     }
 
     .middle {

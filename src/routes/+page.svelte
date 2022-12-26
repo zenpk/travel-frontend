@@ -11,12 +11,12 @@
 </svelte:head>
 
 <section>
-    <Panel/>
-    {#if $mode !== 1}
-        <!--<Filter/>-->
-    {/if}
-    <div class="container mt-5">
-        <div class="row justify-content-center">
+    <div class="container">
+        <Panel/>
+        {#if $mode === 2}
+            <Filter/>
+        {/if}
+        <div class="row justify-content-center mt-5">
             <div class="col-auto">
                 {#if $mode === 1}
                     <div class="wait fs-5">
@@ -24,7 +24,57 @@
                         &nbsp;&nbsp;正在查询，请稍候...
                     </div>
                 {:else if $mode !== 0}
-                    {$data.plans}
+                    <div class="row g-0">
+                        <div class="col">
+                            <div class="card table-responsive">
+                                <table class="table table-borderless m-0">
+                                    <thead class="blue">
+                                    <tr>
+                                        <th>参考图片</th>
+                                        <th>名称</th>
+                                        <th>出行方式</th>
+                                        <th>酒店</th>
+                                        <th>出游天数</th>
+                                        <th>价格范围</th>
+                                        <th>评分</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {#each $data.plans as plan}
+                                        <tr>
+                                            <td>
+                                                <img class="crop" src={plan[0]} alt="img"/>
+                                            </td>
+                                            <td class="fw-bold">{plan[1]}</td>
+                                            <td>{plan[2]}</td>
+                                            <td>{plan[3]}</td>
+                                        </tr>
+                                    {/each}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row g-0 justify-content-center mt-2 mb-5">
+                        <div class="col-auto">
+                            1&nbsp;&nbsp;
+                            <a href="/">2</a>
+                            &nbsp;&nbsp;
+                            <a href="/">3</a>
+                            &nbsp;&nbsp;
+                            <a href="/">4</a>
+                            &nbsp;&nbsp;
+                            ...
+                            &nbsp;&nbsp;
+                            <a href="/">15</a>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            跳转到
+                            <div class="d-inline-block">
+                                <input type="number" class="form-control page-width">
+                            </div>
+                            页
+                        </div>
+                    </div>
                 {/if}
             </div>
         </div>
@@ -36,5 +86,27 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .card {
+        border-radius: 0;
+        border: 0;
+        box-shadow: -2px 2px 5px #dddddd;
+        width: 1135px;
+    }
+
+    .crop {
+        width: 200px;
+        height: 200px;
+        object-fit: cover;
+    }
+
+    .page-width {
+        height: 30px;
+        width: 10px;
+    }
+
+    .blue {
+        background-image: linear-gradient(#d1e4ff, #bbcdff);
     }
 </style>
