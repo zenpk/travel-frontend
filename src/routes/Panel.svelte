@@ -2,6 +2,7 @@
     import FaSearch from "svelte-icons/fa/FaSearch.svelte";
     import {onMount} from "svelte";
     import {mode, data} from "./data.js";
+    import {sleep} from "./sleep.js";
 
     onMount(() => {
         function getDateString(now) {
@@ -19,20 +20,17 @@
     });
 
     async function readData() {
-        mode.set(1); // loading
-        await sleep(1000);
+        mode.set(1);
+        await sleep(2500);
         const destination = document.getElementById("destination");
         if (destination.value === "重庆") {
             data.read1();
         } else {
             data.read2();
         }
-        mode.set(2); // display data
+        mode.set(2);
     }
 
-    function sleep(ms) {
-        return new Promise(resolve => setTimeout(resolve, ms));
-    }
 </script>
 
 <form class="row g-1 justify-content-center mt-5">

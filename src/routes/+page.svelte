@@ -13,17 +13,21 @@
 <section>
     <div class="container">
         <Panel/>
-        {#if $mode === 2}
+        {#if $mode === 2 || $mode === 3}
             <Filter/>
         {/if}
         <div class="row justify-content-center mt-5">
             <div class="col-auto">
-                {#if $mode === 1}
+                {#if $mode === 1 || $mode === 3}
                     <div class="wait fs-5">
                         <Stretch/>
-                        &nbsp;&nbsp;正在查询，请稍候...
+                        {#if $mode === 1}
+                            &nbsp;&nbsp;正在查询，请稍候...
+                        {:else }
+                            &nbsp;&nbsp;正在加载，请稍候...
+                        {/if}
                     </div>
-                {:else if $mode !== 0}
+                {:else if $mode === 2 }
                     <div class="row g-0">
                         <div class="col">
                             <div class="my-card table-responsive">
@@ -35,6 +39,7 @@
                                         <th>出行方式</th>
                                         <th>酒店</th>
                                         <th>出游天数</th>
+                                        <th>平台</th>
                                         <th>价格</th>
                                         <th>评分</th>
                                     </tr>
@@ -46,11 +51,12 @@
                                                 <img class="crop" src={plan[0]} alt="img"/>
                                             </td>
                                             <td class="fw-bold">{plan[1]}</td>
-                                            <td>{plan[2]}</td>
+                                            <td class="travel-cell-width">{plan[2]}</td>
                                             <td>{plan[3]}</td>
-                                            <td>{plan[4]}</td>
-                                            <td>{plan[5]}</td>
-                                            <td>{plan[6]}</td>
+                                            <td class="travel-cell-width">{plan[4]}</td>
+                                            <td class="platform-cell-width">{plan[5]}</td>
+                                            <td class="price-cell-width">{plan[6]}</td>
+                                            <td class="rate-cell-width">{plan[7]}</td>
                                         </tr>
                                     {/each}
                                     </tbody>
@@ -117,5 +123,21 @@
 
     .blue {
         background-image: linear-gradient(#eef3ff, #dae6ff);
+    }
+
+    .travel-cell-width{
+        width:100px;
+    }
+
+    .price-cell-width{
+        width:100px;
+    }
+
+    .rate-cell-width{
+        width:80px;
+    }
+
+    .platform-cell-width{
+        width:80px;
     }
 </style>
